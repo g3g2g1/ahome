@@ -1,0 +1,45 @@
+<head>
+
+   <meta charset="utf-8">
+   <title>joeinterface</title>
+   <meta name="description" content="360 Video � A-Frame">
+   <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+<script>
+ AFRAME.registerComponent('set-sky', {
+   schema: {default:''},
+   init: function() {
+     this.timeout = setInterval(this.updateSky.bind(this), 100);
+     this.sky = this.el;
+     
+   },
+   remove: function() {
+     clearInterval(this.timeout);
+     this.el.removeObject3D(this.object3D);
+   },
+   updateSky: function() {
+     this.sky.setAttribute( 'src', this.data + "?" + Math.random());
+   }
+ });
+
+</script>
+
+<a-scene>
+ <a-camera position="0 0 0">
+   <a-cursor color="#4CC3D9 " fuse="true" timeout="10"></a-cursor>
+ </a-camera>
+
+ <a-sphere color="#F44336 " radius="2" position="-8 2 -8"></a-sphere>
+
+ 
+
+ <a-sky set-sky="out"></a-sky>
+</a-scene>
+
+</body>
