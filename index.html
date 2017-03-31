@@ -24,7 +24,7 @@
      this.el.removeObject3D(this.object3D);
    },
    updateSky: function() {
-     this.sky.setAttribute( 'http://192.168.0.119/picam/cam_pic.php?time=', this.data + "?" + Math.random());
+     this.sky.setAttribute( 'src', this.data + "?" + Math.random());
    }
  });
 
@@ -39,7 +39,7 @@
 
  
 
- <a-sky set-sky="out"></a-sky>
+ <a-sky set-sky="http://192.168.0.119/picam/cam_pic.php?time="></a-sky>
 </a-scene>
 
 </body>
