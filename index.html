@@ -17,7 +17,7 @@
    init: function() {
      this.timeout = setInterval(this.updateSky.bind(this), 100);
      this.sky = this.el;
-     
+     //<a-sky set-sky="http://192.168.0.119/picam/cam_pic.php?time="></a-sky>
    },
    remove: function() {
      clearInterval(this.timeout);
@@ -39,7 +39,8 @@
 
  
 
- <a-sky set-sky="http://192.168.0.119/picam/cam_pic.php?time="></a-sky>
+ 
+<a-sky set-sky="/var/www/html/picam/cam_pic.php"></a-sky>
 </a-scene>
 
 </body>
