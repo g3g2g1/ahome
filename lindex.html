@@ -1,0 +1,37 @@
+<head>
+
+   <meta charset="utf-8">
+   <title>PoiVR</title>
+   <meta name="description" content="PoiVR">
+   <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+
+</head>
+<body>
+<script>
+ AFRAME.registerComponent('set-sky', {
+   schema: {default:''},
+   init: function() {
+     this.timeout = setInterval(this.updateSky.bind(this), 40);
+     this.sky = this.el;
+//   setTimeout(function() { window.location.reload(true); }, 25000);
+
+   },
+
+   remove: function() {
+     clearInterval(this.timeout);
+     this.el.removeObject3D(this.object3D);
+
+   },
+   updateSky: function() {
+     this.sky.setAttribute( 'src', this.data + "?" + Math.random());
+   }
+
+     $(document).ready(function(){
+     document.getElementById("a-enter-vr-button").click();
+     },
+ });
+</script>
+<a-scene>
+<a-sky set-sky="./camd.jpg"></a-sky>
+</a-scene>
+</body>
