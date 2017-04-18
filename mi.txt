@@ -1,0 +1,2 @@
+sshfs -o allow_other pi@172.16.26.61:/dev/shm/mjpeg /home/spacelab/Desktop/vr/pi
+
