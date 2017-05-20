@@ -1,0 +1,1 @@
+raspivid -t 0 -w 1280 -h 1080 -fps 25 -b 1700000 -o -| tee /home/pi/Desktop/asdasdasd.avi | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! gdppay ! udpsink host=192.168.1.50 port=14550
