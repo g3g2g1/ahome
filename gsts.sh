@@ -1,0 +1,1 @@
+gst-launch-1.0 -v -e udpsrc port=14550  ! gdpdepay !  rtph264depay ! avdec_h264 ! tee name=t t. ! queue ! videoconvert ! videoscale ! 'video/x-raw,format=(string)I420,width=680,height=480' ! avimux ! filesink location=/home/byronaero/Desktop/asas.avi t. ! queue ! videoconvert ! autovideosink
